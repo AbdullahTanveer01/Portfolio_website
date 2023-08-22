@@ -22,12 +22,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3.2.0
         with:
-          node-version: '16'
+          repository: reloc8/action-latest-release-version
+          ref: v1.0.0
 
       - name: Fetch latest release version
         id: fetch-latest-release
-        uses: reloc8/action-latest-release-version@1.0.0
+        uses: reloc8/action-latest-release-version@v1.0.0
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # You might need to provide a GitHub token here
           app-name: 'portfolio-web-app.azurewebsites.net'  # Update with your Azure Web App name
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F8ED2DDFCD544947B1B7AC075F5F2128 }}
           package: .  # Path to the root of your static website files
