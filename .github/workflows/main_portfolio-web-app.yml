@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
+        uses: actions/checkout@v2.4.3
         with:
           app-name: 'portfolio-web-app.azurewebsites.net'  # Update with your Azure Web App name
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F8ED2DDFCD544947B1B7AC075F5F2128 }}
