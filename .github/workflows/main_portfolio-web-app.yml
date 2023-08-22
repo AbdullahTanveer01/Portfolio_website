@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Fetch latest release version
         id: fetch-latest-release
-        uses: ./.github/actions/action-latest-release-version
+        uses: AbdullahTanveer01/Portfolio_website/.github/actions/action-latest-release-version
         with:
           repository: AbdullahTanveer01/Portfolio_website
 
