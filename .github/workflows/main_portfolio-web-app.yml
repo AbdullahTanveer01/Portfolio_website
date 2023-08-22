@@ -20,16 +20,13 @@ jobs:
       name: 'Production'
 
     steps:
-      - uses: actions/checkout@v3.2.0
-        with:
-          repository: reloc8/action-latest-release-version
-          ref: main
-
       - name: Fetch latest release version
         id: fetch-latest-release
-        uses: reloc8/action-latest-release-version
+        uses: ./.github/actions/action-latest-release-version
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # You might need to provide a GitHub token here
-          app-name: 'portfolio-web-app.azurewebsites.net'  # Update with your Azure Web App name
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F8ED2DDFCD544947B1B7AC075F5F2128 }}
-          package: .  # Path to the root of your static website files
+          repository: AbdullahTanveer01/Portfolio_website
+
+      - name: Use the latest release version
+        run: echo "Latest release version: ${{ steps.fetch-latest-release.outputs.latest-release }}"
+
+      # Add your deployment steps here, using the fetched release version as needed
